@@ -1,0 +1,131 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: $z-header;
+  color: $color-white;
+}
+
+.inner {
+  @include container;
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 120px;
+}
+
+.logo {
+  margin-right: auto; // штовхає навігацію та соцмережі праворуч
+  display: block;
+
+  img {
+    display: block;
+    height: 92px; // ×2 від попереднього
+    width: auto;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  @include mobile {
+    // Мобільне меню — висувна панель
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(80vw, 320px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    padding: 32px;
+    background: $color-dark;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+}
+
+.navOpen {
+  @include mobile {
+    transform: translateX(0);
+  }
+}
+
+.navLink {
+  font-family: $font-body;
+  font-size: 16px;
+  color: $color-white;
+  opacity: 0.9;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// --- Соцмережі (desktop) ----------------------------------------
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include mobile {
+    display: none; // на мобілці ховаємо (нав — у бургер-меню)
+  }
+}
+
+.social {
+  display: block;
+  opacity: 0.9;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+// --- Бургер (тільки мобілка) ------------------------------------
+.burger {
+  display: none;
+  position: relative;
+  z-index: calc($z-header + 1);
+  width: 32px;
+  height: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include mobile {
+    display: flex;
+  }
+}
+
+.burgerLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: $color-white;
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.burgerLineOpen1 {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.burgerLineOpen2 {
+  opacity: 0;
+}
+
+.burgerLineOpen3 {
+  transform: translateY(-11px) rotate(-45deg);
+}

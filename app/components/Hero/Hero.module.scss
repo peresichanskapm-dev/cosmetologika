@@ -1,0 +1,153 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.hero {
+  position: relative;
+  min-height: 800px; // Figma: фонове фото 1444×800
+  display: flex;
+  align-items: center;
+  color: $color-white;
+  background-color: $color-dark; // фолбек, доки нема фото
+  // Фонове фото Hero (шар «Знімок екрана» з Figma) → public/images/hero/hero-bg.jpg
+  background-image: url("/images/hero/hero-bg.jpg");
+  background-size: cover;
+  background-position: center right;
+  overflow: hidden;
+
+  @include mobile {
+    min-height: 620px;
+  }
+
+  // Затемнення зліва — щоб текст читався поверх фото
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.35) 45%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    z-index: 0;
+  }
+}
+
+.inner {
+  @include container;
+
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  font-family: $font-body;
+  font-size: 16px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+
+  @include mobile {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+}
+
+.dot {
+  margin: 0 6px;
+  opacity: 0.7;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: 55px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+
+  @include mobile {
+    font-size: 34px;
+  }
+}
+
+.subtitle {
+  font-family: $font-body;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.description {
+  font-family: $font-body;
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 547px; // Figma: ширина текстового блоку
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+
+  @include mobile {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+// Спільна база для обох кнопок
+%btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding-inline: 36px;
+  border-radius: 11px; // Figma: corner radius 11
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 500;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.btnPrimary {
+  @extend %btn;
+  background: $gradient-accent; // Figma: D69DA9 → F0B9C4
+  color: $color-dark;
+
+  &:hover {
+    opacity: 0.92;
+  }
+}
+
+.btnOutline {
+  @extend %btn;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: $color-white;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

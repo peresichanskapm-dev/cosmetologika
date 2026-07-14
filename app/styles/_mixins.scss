@@ -1,0 +1,37 @@
+// ============================================================
+// Міксини. Використання:  @use "mixins" as *;
+// ============================================================
+@use "variables" as *;
+
+// Мобілка й нижче (max-width). Основний брейк проєкту.
+@mixin mobile {
+  @media (max-width: #{$bp-mobile - 1px}) {
+    @content;
+  }
+}
+
+// Планшет і нижче.
+@mixin tablet {
+  @media (max-width: #{$bp-tablet - 1px}) {
+    @content;
+  }
+}
+
+// Десктоп і вище (min-width) — коли верстаємо mobile-first.
+@mixin desktop {
+  @media (min-width: $bp-mobile) {
+    @content;
+  }
+}
+
+// Центрований контейнер з максимальною шириною й бічними відступами.
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $container-pad-desktop;
+
+  @include mobile {
+    padding-inline: $container-pad;
+  }
+}

@@ -1,0 +1,83 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.about {
+  background: $color-bg;
+  padding-block: 0px 0px;
+
+  @include mobile {
+    padding-block: 40px 24px;
+  }
+}
+
+.inner {
+  @include container;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.product {
+  height: 700px;
+  width: auto;
+  max-width: none;
+
+  @include mobile {
+    height: 360px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.script {
+  width: auto;
+  height: 200px; // напис «Космето логіка» — крупніше
+  margin-left: -220px;// зсув лівіше, як у макеті
+  margin-bottom: 0px;
+
+  @include mobile {
+    height: 110px;
+    margin-left: -12px;
+  }
+}
+
+.title {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 24px;
+  color: $color-text;
+  margin-bottom: 20px;
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.text {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.55;
+  color: $color-text; // повний темний, без блідості
+  max-width: 460px;
+
+  & + & {
+    margin-top: 18px;
+  }
+}

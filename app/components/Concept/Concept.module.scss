@@ -1,0 +1,146 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.concept {
+  background: $color-bg;
+  padding-block: 8px 72px;
+
+  @include mobile {
+    padding-block: 8px 48px;
+  }
+}
+
+.inner {
+  @include container;
+}
+
+// --- Заголовок --------------------------------------------------
+.head {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.script {
+  font-family: $font-script;
+  color: $color-accent;
+  font-size: 55px;
+}
+
+.title {
+  font-family: $font-display;
+  color: $color-accent;
+  font-size: 52px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  @include mobile {
+    font-size: 30px;
+  }
+}
+
+// --- Теги напрямків ---------------------------------------------
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 64px;
+
+  @include mobile {
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 24px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, #d69da9 0%, #f0b9c4 100%);
+  box-shadow: 0 6px 14px rgba(207, 148, 162, 0.35);
+  color: $color-white;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  @include mobile {
+    padding: 9px 18px;
+    font-size: 13px;
+  }
+}
+
+.arrow {
+  opacity: 0.9;
+}
+
+// --- Картка «7 напрямків» ---------------------------------------
+.card {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 48px;
+  padding: 48px;
+  border-radius: 24px;
+  background: $color-card;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px;
+    border-radius: 18px;
+  }
+}
+
+.cardTitle {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 1.25;
+  color: $color-text;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.accent {
+  color: $color-accent;
+}
+
+.benefits {
+  align-self: center;
+}
+
+.benefitsHead {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 18px;
+  color: $color-text;
+  margin-bottom: 16px;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.benefitItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px 8px 12px;
+  border-radius: 17px;
+  background: linear-gradient(0deg, #ffffff 0%, #e8e8e8 100%);;
+  font-family: $font-body;
+  font-size: 15px;
+  color: $color-text;
+}
+
+.check {
+  flex-shrink: 0;
+  color: $color-accent;
+}

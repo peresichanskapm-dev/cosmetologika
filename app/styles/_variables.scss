@@ -1,0 +1,42 @@
+// ============================================================
+// Дизайн-токени EstyDerm. Значення зчитані з Figma.
+// Використання в модулях:  @use "variables" as *;
+// ============================================================
+
+// --- Кольори ----------------------------------------------------
+$color-bg: #f5eaec; // фон сторінки (Figma: F5EAEC)
+$color-dark: #1c1c1c; // темні секції (Hero) — фолбек під фонове фото
+$color-text: #1a1a1a; // основний темний текст
+$color-text-muted: #6b6b6b;
+$color-white: #ffffff;
+$color-card: #fdf6f7; // світла картка поверх рожевого фону
+$color-border: #e6e6e6;
+$color-pill: #f0d9df; // світло-рожеві теги
+
+// Акцент / рожевий градієнт кнопок (Figma: D69DA9 → F0B9C4)
+$color-accent: #d69da9;
+$color-accent-light: #f0b9c4;
+$gradient-accent: linear-gradient(90deg, #d69da9 0%, #f0b9c4 100%);
+
+// --- Типографіка ------------------------------------------------
+// Три шрифти (усі не-Google, підключаємо локально в layout.tsx):
+//   --font-script  → CalligraphRuss   (каліграфія: «Косметологіка», «Спікери»)
+//   --font-display → Galliard Antiqua (serif-заголовки: «NEXT GEN AESTHETICS»)
+//   --font-body    → Fixel Text       (основний текст / UI)
+$font-script: var(--font-script), "Segoe Script", cursive;
+$font-display: var(--font-display), "Georgia", serif;
+$font-body: var(--font-body), system-ui, -apple-system, sans-serif;
+
+// --- Сітка / розкладка ------------------------------------------
+$container-max: 1440px; // ширина макета (Figma desktop-фрейм)
+$container-pad-desktop: 100px; // бічні відступи контенту (desktop) — уточнити
+$container-pad: 20px; // бічні відступи на мобілці
+
+// --- Брейкпоінти ------------------------------------------------
+$bp-mobile: 768px; // desktop / mobile межа
+$bp-tablet: 1024px;
+
+// --- Z-index ----------------------------------------------------
+$z-header: 100;
+$z-overlay: 200;
+$z-modal: 300;
