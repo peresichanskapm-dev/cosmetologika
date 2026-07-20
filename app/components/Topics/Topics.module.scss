@@ -1,0 +1,225 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.topics {
+  background: $color-bg;
+  padding-block: 8px 72px;
+
+  @include mobile {
+    padding-block: 8px 48px;
+  }
+}
+
+.inner {
+  @include container;
+
+  position: relative;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.script {
+  font-family: $font-script;
+  color: $color-accent;
+  font-size: 55px;
+
+  @include mobile {
+    font-size: 38px;
+  }
+}
+
+.title {
+  font-family: $font-display;
+  color: $color-accent;
+  font-size: 52px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding-inline: $container-pad;
+    margin-inline: -$container-pad;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  padding-block: 32px;
+  border-top: 1px solid $color-text;
+
+  &:last-child {
+    border-bottom: 1px solid $color-text;
+  }
+
+  @include mobile {
+    flex: none;
+    width: calc(100vw - #{$container-pad * 2});
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    gap: 16px;
+    padding: 24px 0;
+    border-top: none;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// Декоративне сердечко, підвішене на межі рядка 02/03
+.heart {
+  position: absolute;
+  left: 60%;
+  bottom: 0;
+  width: 90px;
+  height: 90px;
+  transform: translate(-50%, 50%);
+  background-image: url("/images/audience/heart.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.main {
+  display: flex;
+  gap: 20px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+.num {
+  font-family: $font-display;
+  font-size: 24px;
+  color: $color-accent;
+  padding-top: 6px;
+
+  @include mobile {
+    padding-top: 0;
+  }
+}
+
+.mainText {
+  display: flex;
+  flex-direction: column;
+}
+
+.rowTitle {
+  font-family: $font-display;
+  font-size: 60px;
+  line-height: 1.15;
+  color: $color-text;
+  margin-bottom: 6px;
+  max-width: 629px;
+
+  @include mobile {
+    font-size: 24px;
+  }
+}
+
+.subtitle {
+  font-family: $font-body;
+  font-size: 16px;
+  color: $color-text;
+  margin-bottom: 14px;
+}
+
+.focus {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 14px;
+  border-radius: 8px;
+  background: $color-card;
+  font-family: $font-body;
+  font-size: 14px;
+
+  @include mobile {
+    background: $color-white;
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 6px;
+
+  @include mobile {
+    padding-top: 0;
+  }
+}
+
+.item {
+  position: relative;
+  padding-left: 14px;
+  font-family: $font-body;
+  font-size: 14px;
+
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $color-accent;
+  }
+}
+
+.progressTrack {
+  display: none;
+
+  @include mobile {
+    display: block;
+    position: relative;
+    height: 2px;
+    margin-top: 16px;
+    background: rgba(26, 26, 26, 0.15);
+  }
+}
+
+.progressThumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 100%;
+  background: $color-text;
+  will-change: transform;
+}

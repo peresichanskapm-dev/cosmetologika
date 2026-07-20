@@ -25,7 +25,7 @@ export function Hero() {
           <a href="#register" className={styles.btnPrimary}>
             Зареєструватися
           </a>
-          <a href="#partner" className={styles.btnOutline}>
+          <a href="#partners" className={styles.btnOutline}>
             Стати партнером
           </a>
         </div>

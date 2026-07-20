@@ -1,0 +1,204 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.partners {
+  background: $color-bg;
+  padding-block: 64px;
+
+  @include mobile {
+    padding-block: 40px;
+  }
+}
+
+.inner {
+  @include container;
+  background-color: #F5EAEC;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.script {
+  font-family: $font-script;
+  color: $color-accent;
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-family: $font-display;
+  color: $color-accent;
+  font-size: 34px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+
+  @include mobile {
+    font-size: 24px;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 0px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardLight {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  border-radius: 32px;
+  background: rgba(255, 253, 253, 0.58);
+  min-height: 382px;
+
+  @include mobile {
+    padding: 28px;
+    border-radius: 24px;
+    min-height: unset;
+  }
+}
+
+.cardTitle {
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.25;
+  color: $color-text;
+  margin-bottom: 18px;
+
+  @include mobile {
+    font-size: 24px;
+  }
+}
+
+.cardText {
+  font-family: $font-body;
+  font-size: 21px;
+  line-height: 1.55;
+  margin-bottom: auto;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding-inline: 32px;
+  border-radius: 16px;
+  background: $gradient-accent;
+  color: $color-text;
+  font-family: $font-body;
+  font-size: 18px;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    opacity: 0.92;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding-inline: 32px;
+  padding-left: 64px;
+  margin-left: -32px;
+  border-radius: 16px;
+  background: #f8dbe1;
+  font-family: $font-body;
+  font-size: 18px;
+  color: $color-text;
+  position: relative;
+  z-index: 1;
+
+  @include mobile {
+    height: 44px;
+    width: 100%;
+    padding-inline: 20px;
+    margin-left: 0;
+    background: #f8dbe1;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.cardPink {
+  padding: 48px;
+  border-radius: 32px;
+  background: linear-gradient(160deg, #d99fac 0%, #cf94a2 100%);
+  color: $color-white;
+  min-height: 382px;
+
+  @include mobile {
+    padding: 28px;
+    border-radius: 24px;
+    min-height: unset;
+  }
+}
+
+.cardPinkTitle {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 24px;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.pinkList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.pinkItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  font-family: $font-body;
+  font-size: 19px;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}

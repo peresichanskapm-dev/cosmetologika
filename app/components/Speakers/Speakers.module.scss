@@ -1,0 +1,141 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.speakers {
+  background: $color-bg;
+  padding-block: 64px;
+
+  @include mobile {
+    padding-block: 40px;
+  }
+}
+
+.inner {
+  @include container;
+}
+
+.script {
+  font-family: $font-script;
+  color: $color-accent;
+  font-size: 64px;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 40px;
+
+  @include mobile {
+    font-size: 44px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // без цього grid-трек «роздувається» під контент іншого рядка
+  height: 100%; // всі картки — однакової висоти в межах рядка (grid stretch)
+  border-radius: 11px;
+  overflow: hidden;
+  background: $color-card;
+}
+
+.photo {
+  flex: none;
+  aspect-ratio: 295 / 268;
+  background-color: rgba(0, 0, 0, 0.08); // фолбек, доки нема фото
+  background-size: cover;
+  background-position: center;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 12px 20px;
+  text-align: center;
+}
+
+.name {
+  font-family: $font-body;
+  font-weight: 500;
+  font-size: 23px;
+  color: $color-text;
+  margin-bottom: 2px;
+
+  @include mobile {
+    font-size: 17px;
+  }
+}
+
+.role {
+  font-family: $font-body;
+  font-size: 18px;
+  color: $color-text-muted;
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+// Плитка-лоадер (замість ще не оголошених спікерів) — займає решту останнього
+// ряду: ширина рахується в Speakers.tsx і передається через --span-* змінні.
+// Структура дзеркалить .card/.photo/.info, щоб розмір плитки завжди
+// збігався з розміром звичайної картки спікера.
+.loader {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // без цього grid-трек «роздувається» під фіксовану ширину іконки
+  border-radius: 11px;
+  overflow: hidden;
+  background: $color-card;
+  grid-column: span var(--span-desktop, 1);
+
+  @include tablet {
+    grid-column: span var(--span-tablet, 1);
+  }
+
+  @include mobile {
+    grid-column: span var(--span-mobile, 1);
+  }
+}
+
+.loaderPhoto {
+  flex: none;
+  aspect-ratio: 295 / 268;
+  background-image: url("/images/speakers/loader.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.loaderInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 12px 20px;
+  text-align: center;
+}
+
+.loaderText {
+  min-width: 0;
+  font-family: $font-display;
+  font-size: 20px;
+  line-height: 1.2;
+  color: $color-accent;
+  text-transform: uppercase;
+}

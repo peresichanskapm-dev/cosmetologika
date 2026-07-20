@@ -15,7 +15,10 @@
   overflow: hidden;
 
   @include mobile {
-    min-height: 620px;
+    min-height: 950px;
+    align-items: stretch;
+    background-image: url("/images/hero/hero-bg-mobile.webp");
+    background-position: center;
   }
 
   // Затемнення зліва — щоб текст читався поверх фото
@@ -30,6 +33,17 @@
       rgba(0, 0, 0, 0) 70%
     );
     z-index: 0;
+
+    // На мобілці фото йде під текстом, а не збоку — тому затемнення зверху вниз
+    @include mobile {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.6) 40%,
+        rgba(0, 0, 0, 0.2) 62%,
+        rgba(0, 0, 0, 0) 75%
+      );
+    }
   }
 }
 
@@ -41,6 +55,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @include mobile {
+    padding-top: 140px;
+  }
 }
 
 .eyebrow {
@@ -70,7 +88,7 @@
   margin-bottom: 20px;
 
   @include mobile {
-    font-size: 34px;
+    font-size: 26px;
   }
 }
 
@@ -106,8 +124,11 @@
   @include mobile {
     flex-direction: column;
     align-items: stretch;
+    align-self: center;
     width: 100%;
     max-width: 340px;
+    margin-top: auto;
+    margin-bottom: 48px;
   }
 }
 

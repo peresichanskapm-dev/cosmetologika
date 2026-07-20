@@ -5,13 +5,16 @@ export function About() {
     <section id="about" className={styles.about}>
       <div className={styles.inner}>
         <div className={styles.media}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className={styles.product}
-            src="/images/about/product.png"
-            alt=""
-            aria-hidden="true"
-          />
+          <picture>
+            <source media="(max-width: 767px)" srcSet="/images/about/product-mobile.webp" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className={styles.product}
+              src="/images/about/product.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </picture>
         </div>
 
         <div className={styles.content}>

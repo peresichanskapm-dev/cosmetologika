@@ -47,8 +47,18 @@
   margin-bottom: 64px;
 
   @include mobile {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: 8px;
     margin-bottom: 40px;
+    padding-inline: $container-pad;
+    margin-inline: -$container-pad;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -67,6 +77,7 @@
   letter-spacing: 0.04em;
 
   @include mobile {
+    flex-shrink: 0;
     padding: 9px 18px;
     font-size: 13px;
   }

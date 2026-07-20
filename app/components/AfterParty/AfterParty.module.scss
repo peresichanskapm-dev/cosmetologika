@@ -1,0 +1,116 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.afterParty {
+  background: #d69da9;
+  padding-block: 64px;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.inner {
+  @include container;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  border-radius: 40px;
+  overflow: hidden;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+}
+
+.textPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  padding: 64px 56px;
+  background: #f5dee3;
+
+  @include mobile {
+    padding: 40px 24px;
+    gap: 20px;
+  }
+}
+
+.script {
+  font-family: $font-script;
+  color: $color-text;
+  font-size: 150px;
+  line-height: 1;
+
+  @include mobile {
+    font-size: 56px;
+  }
+}
+
+.paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.paragraphs p {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $color-text;
+}
+
+.photoPanel {
+  position: relative;
+  min-height: 420px;
+
+  @include mobile {
+    min-height: 320px;
+  }
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.1); // фолбек, доки нема фото
+  background-image: url("/images/after-party/guest.webp");
+  background-size: cover;
+  background-position: top center;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 200px;
+  height: auto;
+}
+
+.guest {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  overflow: hidden; // деякі браузери не обрізають backdrop-filter по border-radius без цього
+  padding: 16px 24px;
+  border-radius: 14px;
+  background: rgba(238, 232, 230, 0.95);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.guestName {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 22px;
+  color: $color-text;
+}
+
+.guestRole {
+  font-family: $font-body;
+  font-size: 14px;
+  color: $color-text-muted;
+}

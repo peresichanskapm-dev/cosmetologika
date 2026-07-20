@@ -1,0 +1,155 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.pricing {
+  background: $color-accent;
+  padding-block: 64px;
+
+  @include mobile {
+    padding-block: 40px;
+  }
+}
+
+.inner {
+  @include container;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.script {
+  font-family: $font-script;
+  color: $color-white;
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-family: $font-display;
+  color: $color-white;
+  font-size: 32px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 505px);
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border-radius: 32px;
+
+  @include mobile {
+    padding: 28px;
+    border-radius: 24px;
+  }
+}
+
+.cardSimple {
+  min-height: 415px;
+  background: rgba(255, 253, 253, 0.58);
+
+  @include mobile {
+    min-height: unset;
+  }
+}
+
+.cardVip {
+  min-height: 510px;
+  background: rgba(255, 253, 253, 0.77);
+
+  @include mobile {
+    min-height: unset;
+  }
+}
+
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.name {
+  font-family: $font-display;
+  font-size: 60px;
+  color: $color-text;
+
+  @include mobile {
+    font-size: 32px;
+  }
+}
+
+.price {
+  font-family: $font-script;
+  font-size: 70px;
+  color: $color-accent;
+  white-space: nowrap;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.item {
+  position: relative;
+  padding-left: 14px;
+  font-family: $font-body;
+  font-size: 20px;
+  color: $color-text;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $color-accent;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: auto;
+  background: $color-accent;
+  color: $color-dark;
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 500;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+  }
+}

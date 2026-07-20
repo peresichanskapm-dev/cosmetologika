@@ -1,0 +1,156 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.footer {
+  background: linear-gradient(160deg, #dba3af 0%, #cf94a2 100%);
+  color: $color-white;
+  padding-block: 56px 32px;
+}
+
+.inner {
+  @include container;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.colRight {
+  justify-self: end;
+
+  @include mobile {
+    justify-self: stretch;
+  }
+}
+
+.colTitle {
+  font-family: $font-display;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.colText {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contactPhone {
+  font-family: $font-body;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.inlinePhone {
+  text-decoration: underline;
+}
+
+.socialsLabel {
+  font-family: $font-body;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 20px 0 12px;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.18);
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.logo {
+  height: 90px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.navLink {
+  font-family: $font-body;
+  font-size: 15px;
+  color: $color-white;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+  font-family: $font-body;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+
+  @include mobile {
+    text-align: center;
+  }
+}

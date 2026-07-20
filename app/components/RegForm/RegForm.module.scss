@@ -1,0 +1,103 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.reg {
+  background: $color-bg;
+  padding-block: 120px;
+
+  @include mobile {
+    padding-block: 48px;
+  }
+}
+
+.inner {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.label {
+  font-family: $font-body;
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: 4px;
+}
+
+.script {
+  font-family: $font-script;
+  color: $color-accent;
+  font-size: 128px;
+  line-height: 1;
+  margin-top: -40px;
+
+  @include mobile {
+    font-size: 52px;
+    margin-top: -16px;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 16px;
+  width: 100%;
+  max-width: 980px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input {
+  height: 40px;
+  padding-inline: 24px;
+  border: none;
+  border-radius: 20px;
+  background: $color-card;
+  font-family: $font-body;
+  font-size: 14px;
+  color: $color-text;
+
+  &::placeholder {
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px $color-accent;
+  }
+}
+
+.submit {
+  height: 40px;
+  padding-inline: 32px;
+  border-radius: 20px;
+  background: $gradient-accent;
+  color: $color-dark;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.92;
+  }
+}
+
+.note {
+  margin-top: 20px;
+  font-family: $font-body;
+  font-size: 15px;
+  color: $color-accent;
+}

@@ -1,0 +1,83 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.benefits {
+  background: $color-bg;
+  padding-block: 8px 72px;
+  overflow: hidden;
+
+  @include mobile {
+    padding-block: 8px 48px;
+  }
+}
+
+.inner {
+  @include container;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 40px;
+
+  @include mobile {
+    margin-bottom: 28px;
+  }
+}
+
+.script {
+  font-family: $font-script;
+  color: $color-accent;
+  font-size: 40px;
+
+  @include mobile {
+    font-size: 28px;
+  }
+}
+
+.title {
+  font-family: $font-display;
+  color: $color-accent;
+  font-size: 45px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+// Трек виїжджає за межі контейнера — зсув керується скролом сторінки (див. Benefits.tsx)
+.track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+  padding: 16px 28px;
+  border-radius: 13px;
+  height: 45px;
+  background: $color-white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  font-family: $font-body;
+  font-size: 18px;
+  color: $color-text;
+  white-space: nowrap;
+
+  svg {
+    flex-shrink: 0;
+    color: $color-accent;
+  }
+
+  @include mobile {
+    padding: 12px 20px;
+    font-size: 14px;
+    gap: 8px;
+  }
+}

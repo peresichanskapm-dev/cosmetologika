@@ -1,0 +1,147 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.cta {
+  position: relative;
+  aspect-ratio: 1.8; // пропорції figure.webp (2880×1600) — без обрізання по висоті
+  min-height: 690px;
+  display: flex;
+  align-items: center;
+  background-color: #ebe6e4; // фолбек, доки нема фото
+  background-image: url("/images/cta/figure.webp");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+
+  @include mobile {
+    aspect-ratio: auto;
+    min-height: unset;
+    display: block;
+    background-color: #f5eaec;
+    background-image: none;
+  }
+}
+
+.photoMobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+    width: 100%;
+    aspect-ratio: 748 / 950;
+    background-color: #ebe6e4;
+    background-image: url("/images/cta/figure-mobile.webp");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+}
+
+.inner {
+  @include container;
+
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  padding-block: 64px;
+
+  @include mobile {
+    padding-block: 32px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.eyebrow {
+  font-family: $font-body;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color-text;
+  margin-bottom: 24px;
+}
+
+.dot {
+  margin: 0 8px;
+  color: $color-text;
+  opacity: 0.5;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: 48px;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: $color-text;
+  margin-bottom: 24px;
+
+  @include mobile {
+    font-size: 26px;
+  }
+}
+
+.text {
+  font-family: $font-body;
+  font-size: 23px;
+  line-height: 1.55;
+  max-width: 700px;
+  margin-bottom: 40px;
+
+  @include mobile {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+
+  @include mobile {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+%btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding-inline: 32px;
+  border-radius: 12px;
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 500;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.btnPrimary {
+  @extend %btn;
+  background: $gradient-accent;
+  color: $color-dark;
+}
+
+.btnOutline {
+  @extend %btn;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  color: $color-text;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}

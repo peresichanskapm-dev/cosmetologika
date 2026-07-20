@@ -1,0 +1,95 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.gallery {
+  background: $color-bg;
+  padding-block: 40px 64px;
+
+  @include mobile {
+    padding-block: 24px 40px;
+  }
+}
+
+.inner {
+  @include container;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  height: 460px;
+
+  @include mobile {
+    height: 296px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
+    padding-inline: $container-pad;
+    margin-inline: -$container-pad;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.photo {
+  flex: none;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.06);
+  background-size: cover;
+  background-position: center;
+}
+
+// Пропорції й висоти підібрані під референс-колаж (4 фото різної висоти)
+.photo1 {
+  width: 280px;
+  height: 88%;
+  background-image: url("/images/gallery/photo-1.webp");
+
+  @include mobile {
+    width: auto;
+    height: 88%;
+    aspect-ratio: 246 / 373;
+    margin-left: 28px;
+  }
+}
+
+.photo2 {
+  width: 224px;
+  height: 57%;
+  background-image: url("/images/gallery/photo-2.webp");
+
+  @include mobile {
+    width: auto;
+    height: 57%;
+    aspect-ratio: 212 / 242;
+  }
+}
+
+.photo3 {
+  width: 133px;
+  height: 43%;
+  background-image: url("/images/gallery/photo-3.webp");
+
+  @include mobile {
+    width: auto;
+    height: 43%;
+    aspect-ratio: 122 / 180;
+  }
+}
+
+.photo4 {
+  width: 293px;
+  height: 100%;
+  background-image: url("/images/gallery/photo-4.webp");
+
+  @include mobile {
+    width: auto;
+    height: 100%;
+    aspect-ratio: 262 / 389;
+  }
+}
