@@ -3,7 +3,7 @@ import { SPEAKERS } from "./data";
 import styles from "./Speakers.module.scss";
 
 // Кількість колонок сітки на кожному брейкпоінті (має збігатись зі .grid у scss)
-const COLUMNS = { desktop: 4, tablet: 3, mobile: 1 };
+const COLUMNS = { desktop: 4, tablet: 2, mobile: 1 };
 
 // Плитка-лоадер добирає решту останнього ряду: якщо спікери займають рядок
 // повністю (або рядок порожній) — вона на всю ширину сітки.

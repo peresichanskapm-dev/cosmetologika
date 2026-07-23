@@ -15,13 +15,13 @@ const TRACK_ITEMS = [...ITEMS, ...ITEMS];
 
 function CheckIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-      <circle cx="10" cy="10" r="10" fill="currentColor" />
+    <svg width="20" height="20" viewBox="0 0 18 18" aria-hidden="true">
+      <circle cx="9" cy="9" r="9" fill="currentColor" />
       <path
-        d="M5.5 10.2l2.8 2.8L14.5 7"
+        d="M4 10.7727C4 10.7727 4.96429 10.7727 6.25 13C6.25 13 9.82364 7.16645 13 6"
         fill="none"
         stroke="#fff"
-        strokeWidth="1.8"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

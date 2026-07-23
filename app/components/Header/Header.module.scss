@@ -28,6 +28,24 @@
   }
 }
 
+// Обгортка навколо мобільної висувної панелі: на десктопі не бере участі в
+// розкладці (display:contents), а на мобілці стає fixed-контейнером на весь
+// екран, що обрізає (overflow:hidden) панель, коли вона зсунута за межі
+// екрана через translateX — інакше position:fixed елемент виходить за межі
+// containing block body й спричиняє горизонтальний скрол сторінки.
+.navClip {
+  display: contents;
+
+  @include mobile {
+    display: block;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: $z-header;
+  }
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -35,7 +53,7 @@
 
   @include mobile {
     // Мобільне меню — висувна панель
-    position: fixed;
+    position: absolute;
     inset: 0 0 0 auto;
     width: min(80vw, 320px);
     flex-direction: column;
@@ -46,6 +64,7 @@
     background: $color-dark;
     transform: translateX(100%);
     transition: transform 0.3s ease;
+    pointer-events: auto;
   }
 }
 

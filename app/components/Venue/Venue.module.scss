@@ -20,8 +20,8 @@
 }
 
 .label {
-  font-family: $font-body;
-  font-size: 15px;
+  font-family: $font-display;
+  font-size: 16px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: $color-accent;
@@ -31,7 +31,7 @@
 .script {
   font-family: $font-script;
   color: $color-accent;
-  font-size: 64px;
+  font-size: 152px;
   line-height: 1;
   margin-bottom: 16px;
 
@@ -41,8 +41,8 @@
 }
 
 .eyebrow {
-  font-family: $font-body;
-  font-size: 15px;
+  font-family: $font-display;
+  font-size: 18px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: $color-text;
@@ -53,9 +53,27 @@
   }
 }
 
+// Крапка-роздільник намальована як заповнене коло (не символ шрифту), щоб
+// гарантовано бути жирною й точно відцентрованою по висоті тексту.
 .dot {
-  margin: 0 6px;
-  color: $color-accent;
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  margin: 0 12px;
+  color: transparent;
+  vertical-align: middle;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $color-text;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .text {

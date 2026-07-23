@@ -27,22 +27,25 @@
 .script {
   font-family: $font-script;
   color: $color-white;
-  font-size: 40px;
+  font-size: 55px;
+  line-height: 1;
+  margin: 0;
 
   @include mobile {
-    font-size: 28px;
+    font-size: 38px;
   }
 }
 
 .title {
   font-family: $font-display;
   color: $color-white;
-  font-size: 30px;
+  font-size: 36px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  margin: 0;
 
   @include mobile {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 

@@ -27,6 +27,8 @@
   font-family: $font-script;
   color: $color-accent;
   font-size: 55px;
+  line-height: 1;
+  margin: 0;
 
   @include mobile {
     font-size: 38px;
@@ -36,12 +38,13 @@
 .title {
   font-family: $font-display;
   color: $color-accent;
-  font-size: 52px;
+  font-size: 36px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  margin: 0;
 
   @include mobile {
-    font-size: 30px;
+    font-size: 24px;
   }
 }
 
@@ -65,12 +68,14 @@
   position: relative;
   height: 90%;
   width: 135%;
+  margin-left: -17.5%;
   padding: 68px 28px 32px;
   border-radius: 20px;
   background: $color-card;
 
   @include mobile {
     width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -88,8 +93,8 @@
 
 .cardTitle {
   font-family: $font-body;
-  font-weight: 600;
-  font-size: 22px;
+  font-weight: 500;
+  font-size: 16px;
   color: $color-text;
   margin-bottom: 16px;
 }
@@ -97,14 +102,14 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0px;
 }
 
 .listItem {
   position: relative;
   padding-left: 16px;
   font-family: $font-body;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.4;
   color: $color-text-muted;
 

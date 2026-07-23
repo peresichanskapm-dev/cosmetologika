@@ -24,7 +24,7 @@ export function Footer() {
             <p className={styles.socialsLabel}>Або напишіть нам у соцмережах:</p>
             <div className={styles.socials}>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/estyderm"
                 className={styles.social}
                 aria-label="Instagram"
                 target="_blank"
@@ -34,7 +34,7 @@ export function Footer() {
                 <img src="/images/header/formkit_instagram.svg" alt="" width={20} height={20} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/estyderm"
                 className={styles.social}
                 aria-label="Facebook"
                 target="_blank"
@@ -44,7 +44,7 @@ export function Footer() {
                 <img src="/images/header/ic_baseline-facebook.svg" alt="" width={20} height={20} />
               </a>
               <a
-                href="https://t.me/"
+                href="https://t.me/esty_derm"
                 className={styles.social}
                 aria-label="Telegram"
                 target="_blank"

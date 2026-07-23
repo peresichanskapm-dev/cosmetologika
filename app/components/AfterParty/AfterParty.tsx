@@ -6,7 +6,10 @@ export function AfterParty() {
       <div className={styles.inner}>
         <div className={styles.card}>
           <div className={styles.textPanel}>
-            <p className={styles.script}>After Party</p>
+            <p className={styles.script}>
+              <span className={styles.scriptWord}>After</span>
+              <span className={styles.scriptWord}>Party</span>
+            </p>
 
             <div className={styles.paragraphs}>
               <p>

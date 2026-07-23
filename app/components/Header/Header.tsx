@@ -12,10 +12,9 @@ const NAV_ITEMS = [
   { label: "Ціни та квитки", href: "#tickets" },
 ];
 
-// ⚠️ ПЛЕЙСХОЛДЕР: підстав реальні посилання на соцмережі.
 const SOCIALS = [
-  { name: "Instagram", href: "https://instagram.com", icon: "/images/header/formkit_instagram.svg" },
-  { name: "Facebook", href: "https://facebook.com", icon: "/images/header/ic_baseline-facebook.svg" },
+  { name: "Instagram", href: "https://www.instagram.com/estyderm", icon: "/images/header/formkit_instagram.svg" },
+  { name: "Facebook", href: "https://www.facebook.com/estyderm", icon: "/images/header/ic_baseline-facebook.svg" },
 ];
 
 export function Header() {
@@ -29,21 +28,23 @@ export function Header() {
           <img src="/images/header/logo-white.svg" alt="Косметологіка" />
         </a>
 
-        <nav
-          className={`${styles.nav} ${open ? styles.navOpen : ""}`}
-          aria-label="Головна навігація"
-        >
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={styles.navLink}
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div className={styles.navClip}>
+          <nav
+            className={`${styles.nav} ${open ? styles.navOpen : ""}`}
+            aria-label="Головна навігація"
+          >
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={styles.navLink}
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
 
         <div className={styles.socials}>
           {SOCIALS.map((s) => (

@@ -12,6 +12,10 @@
 
 .inner {
   @include container;
+
+  @include mobile {
+    padding-inline: 40px;
+  }
 }
 
 .script {
@@ -33,7 +37,7 @@
   gap: 24px;
 
   @include tablet {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @include mobile {
@@ -42,11 +46,13 @@
   }
 }
 
+// Фіксоване співвідношення сторін картки (фото + інфоблок разом), однакове
+// для всіх карток на всіх рядках — масштабується лише розмір, не пропорції.
 .card {
   display: flex;
   flex-direction: column;
   min-width: 0; // без цього grid-трек «роздувається» під контент іншого рядка
-  height: 100%; // всі картки — однакової висоти в межах рядка (grid stretch)
+  aspect-ratio: 295 / 340;
   border-radius: 11px;
   overflow: hidden;
   background: $color-card;
@@ -62,11 +68,13 @@
 
 .info {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 14px 12px 20px;
   text-align: center;
+  overflow: hidden;
 }
 
 .name {
@@ -75,6 +83,9 @@
   font-size: 23px;
   color: $color-text;
   margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   @include mobile {
     font-size: 17px;
@@ -85,6 +96,10 @@
   font-family: $font-body;
   font-size: 18px;
   color: $color-text-muted;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 
   @include mobile {
     font-size: 14px;
@@ -97,7 +112,8 @@
 // збігався з розміром звичайної картки спікера.
 .loader {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: stretch;
   min-width: 0; // без цього grid-трек «роздувається» під фіксовану ширину іконки
   border-radius: 11px;
   overflow: hidden;
@@ -110,25 +126,43 @@
 
   @include mobile {
     grid-column: span var(--span-mobile, 1);
+    flex-direction: column;
+    align-items: center;
   }
 }
 
+// Іконка-лоадер завжди зберігає розмір звичайного фото картки,
+// незалежно від того, скільки колонок займає плитка (не розтягується).
 .loaderPhoto {
   flex: none;
+  width: 45%;
+  max-width: 220px;
   aspect-ratio: 295 / 268;
   background-image: url("/images/speakers/loader.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @include mobile {
+    width: 100%;
+    max-width: 300px;;
+  }
 }
 
 .loaderInfo {
   flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 14px 12px 20px;
-  text-align: center;
+  justify-content: flex-start;
+  padding: 14px 20px;
+  text-align: left;
+
+  @include mobile {
+    justify-content: center;
+    padding: 14px 12px 20px;
+    text-align: center;
+  }
 }
 
 .loaderText {

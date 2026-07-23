@@ -22,20 +22,25 @@
 .script {
   font-family: $font-script;
   color: $color-white;
-  font-size: 32px;
+  font-size: 55px;
   line-height: 1;
-  margin-bottom: 4px;
+  margin: 0;
+
+  @include mobile {
+    font-size: 38px;
+  }
 }
 
 .title {
   font-family: $font-display;
   color: $color-white;
-  font-size: 32px;
+  font-size: 36px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  margin: 0;
 
   @include mobile {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 
@@ -124,11 +129,12 @@
     content: "";
     position: absolute;
     left: 0;
-    top: 7px;
+    top: 50%;
     width: 4px;
     height: 4px;
     border-radius: 50%;
     background: $color-accent;
+    transform: translateY(-50%);
   }
 }
 
@@ -139,7 +145,7 @@
   height: 50px;
   border-radius: 30px;
   margin-top: auto;
-  background: $color-accent;
+  background: $gradient-accent;
   color: $color-dark;
   font-family: $font-body;
   font-size: 16px;

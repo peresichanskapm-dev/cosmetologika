@@ -14,10 +14,10 @@ function CheckIcon() {
     <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
       <circle cx="9" cy="9" r="9" fill="#fff" fillOpacity="0.9" />
       <path
-        d="M5 9.2l2.6 2.6L13 6.4"
+        d="M4 10.7727C4 10.7727 4.96429 10.7727 6.25 13C6.25 13 9.82364 7.16645 13 6"
         fill="none"
         stroke="#cf94a2"
-        strokeWidth="1.6"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

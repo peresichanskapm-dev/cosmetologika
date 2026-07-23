@@ -25,6 +25,8 @@
   font-family: $font-script;
   color: $color-accent;
   font-size: 55px;
+  line-height: 1;
+  margin: 0;
 
   @include mobile {
     font-size: 38px;
@@ -34,10 +36,11 @@
 .title {
   font-family: $font-display;
   color: $color-accent;
-  font-size: 52px;
+  font-size: 36px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   white-space: nowrap;
+  margin: 0;
 
   @include mobile {
     font-size: 22px;
@@ -69,7 +72,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
-  padding-block: 32px;
+  padding-block: 22px;
   border-top: 1px solid $color-text;
 
   &:last-child {
@@ -95,10 +98,10 @@
 // Декоративне сердечко, підвішене на межі рядка 02/03
 .heart {
   position: absolute;
-  left: 60%;
+  left: 56%;
   bottom: 0;
-  width: 90px;
-  height: 90px;
+  width: 140px;
+  height: 140px;
   transform: translate(-50%, 50%);
   background-image: url("/images/audience/heart.webp");
   background-size: contain;
@@ -141,9 +144,9 @@
 .rowTitle {
   font-family: $font-display;
   font-size: 60px;
-  line-height: 1.15;
+  line-height: 1.05;
   color: $color-text;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   max-width: 629px;
 
   @include mobile {
@@ -155,7 +158,7 @@
   font-family: $font-body;
   font-size: 16px;
   color: $color-text;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .focus {

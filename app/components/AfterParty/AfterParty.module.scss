@@ -41,13 +41,23 @@
 }
 
 .script {
+  display: flex;
+  flex-direction: column;
   font-family: $font-script;
   color: $color-text;
+  line-height: 0.85;
+}
+
+.scriptWord {
   font-size: 150px;
-  line-height: 1;
 
   @include mobile {
     font-size: 56px;
+  }
+
+  & + & {
+    margin-top: -0.32em;
+    margin-left: 38%;
   }
 }
 
