@@ -1,10 +1,11 @@
 import styles from "./About.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 export function About() {
   return (
     <section id="about" className={styles.about}>
       <div className={styles.inner}>
-        <div className={styles.media}>
+        <div className={styles.media} data-aos="fade-up">
           <picture>
             <source media="(max-width: 767px)" srcSet="/images/about/product-mobile.webp" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -17,7 +18,7 @@ export function About() {
           </picture>
         </div>
 
-        <div className={styles.content}>
+        <div className={styles.content} data-aos="fade-up" style={aosDelay(1)}>
           {/* Напис «Космето логіка» — SVG з макета */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

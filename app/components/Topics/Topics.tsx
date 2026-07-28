@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import styles from "./Topics.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 const TOPICS = [
   {
@@ -130,7 +131,7 @@ export function Topics() {
   return (
     <section className={styles.topics}>
       <div className={styles.inner}>
-        <header className={styles.head}>
+        <header className={styles.head} data-aos="fade-up">
           <p className={styles.script} aria-hidden="true">
             Програма
           </p>
@@ -138,8 +139,8 @@ export function Topics() {
         </header>
 
         <ul className={styles.list} ref={listRef}>
-          {TOPICS.map((topic) => (
-            <li key={topic.num} className={styles.row}>
+          {TOPICS.map((topic, i) => (
+            <li key={topic.num} className={styles.row} data-aos="fade-up" style={aosDelay(i)}>
               <div className={styles.main}>
                 <span className={styles.num}>{topic.num}</span>
                 <div className={styles.mainText}>

@@ -66,7 +66,7 @@ export function Expo() {
   return (
     <section className={styles.expo}>
       <div className={styles.inner}>
-        <header className={styles.head}>
+        <header className={styles.head} data-aos="fade-up">
           <p className={styles.script} aria-hidden="true">
             Партнери та експозона
           </p>

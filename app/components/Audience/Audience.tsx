@@ -1,4 +1,5 @@
 import styles from "./Audience.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 const GROUPS = [
   {
@@ -23,7 +24,7 @@ export function Audience() {
   return (
     <section id="for-whom" className={styles.audience}>
       <div className={styles.inner}>
-        <header className={styles.head}>
+        <header className={styles.head} data-aos="fade-up">
           <p className={styles.script} aria-hidden="true">
             Для кого
           </p>
@@ -31,8 +32,8 @@ export function Audience() {
         </header>
 
         <ul className={styles.grid}>
-          {GROUPS.map((group) => (
-            <li key={group.title} className={styles.card}>
+          {GROUPS.map((group, i) => (
+            <li key={group.title} className={styles.card} data-aos="fade-up" style={aosDelay(i)}>
               <div className={styles.heart} aria-hidden="true" />
               <h3 className={styles.cardTitle}>{group.title}</h3>
               <ul className={styles.list}>

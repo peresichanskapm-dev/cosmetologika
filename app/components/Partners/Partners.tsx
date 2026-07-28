@@ -1,4 +1,5 @@
 import styles from "./Partners.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 const PARTNER_ITEMS = [
   "виставкові стенди",
@@ -29,7 +30,7 @@ export function Partners() {
   return (
     <section id="partners" className={styles.partners}>
       <div className={styles.inner}>
-        <header className={styles.head}>
+        <header className={styles.head} data-aos="fade-up">
           <p className={styles.script}>Стати партнером</p>
           <h2 className={styles.title}>
             Представте свій бренд аудиторії, яка приймає рішення
@@ -37,7 +38,7 @@ export function Partners() {
         </header>
 
         <div className={styles.cards}>
-          <div className={styles.cardLight}>
+          <div className={styles.cardLight} data-aos="fade-up" style={aosDelay(1)}>
             <h3 className={styles.cardTitle}>
               КосметоЛогіка об&apos;єднує лікарів-дерматологів, косметологів та
               власників клінік
@@ -55,7 +56,7 @@ export function Partners() {
             </div>
           </div>
 
-          <div className={styles.cardPink}>
+          <div className={styles.cardPink} data-aos="fade-up" style={aosDelay(2)}>
             <p className={styles.cardPinkTitle}>Для партнерів доступні:</p>
             <ul className={styles.pinkList}>
               {PARTNER_ITEMS.map((item) => (

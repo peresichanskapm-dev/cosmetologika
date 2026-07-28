@@ -1,4 +1,5 @@
 import styles from "./Pricing.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 const PLANS = [
   {
@@ -34,7 +35,7 @@ export function Pricing() {
   return (
     <section id="tickets" className={styles.pricing}>
       <div className={styles.inner}>
-        <header className={styles.head}>
+        <header className={styles.head} data-aos="fade-up">
           <p className={styles.script} aria-hidden="true">
             Варіанти участі
           </p>
@@ -42,10 +43,12 @@ export function Pricing() {
         </header>
 
         <div className={styles.cards}>
-          {PLANS.map((plan) => (
+          {PLANS.map((plan, i) => (
             <div
               key={plan.name}
               className={`${styles.card} ${plan.variant === "vip" ? styles.cardVip : styles.cardSimple}`}
+              data-aos="fade-up"
+              style={aosDelay(i)}
             >
               <div className={styles.cardHead}>
                 <h3 className={styles.name}>{plan.name}</h3>

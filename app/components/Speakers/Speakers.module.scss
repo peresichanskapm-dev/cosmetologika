@@ -119,15 +119,21 @@
   overflow: hidden;
   background: $color-card;
   grid-column: span var(--span-desktop, 1);
+  // Висота картки задається aspect-ratio (295/340), тому коли плитка сама
+  // на весь ряд (нема сусідньої картки, щоб stretch спрацював), явно
+  // масштабуємо той самий аспект на кількість зайнятих колонок.
+  aspect-ratio: calc(295 * var(--span-desktop, 1)) / 340;
 
   @include tablet {
     grid-column: span var(--span-tablet, 1);
+    aspect-ratio: calc(295 * var(--span-tablet, 1)) / 340;
   }
 
   @include mobile {
     grid-column: span var(--span-mobile, 1);
     flex-direction: column;
     align-items: center;
+    aspect-ratio: calc(295 * var(--span-mobile, 1)) / 340;
   }
 }
 

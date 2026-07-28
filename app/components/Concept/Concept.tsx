@@ -1,4 +1,5 @@
 import styles from "./Concept.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 // Теги напрямків. Останній (FUTURE) — залитий, без стрілки.
 const TAGS = ["INJECT", "RENEW", "TREAT", "SUPPORT", "MAINTAIN", "TECH", "FUTURE"];
@@ -37,14 +38,14 @@ export function Concept() {
   return (
     <section id="topics" className={styles.concept}>
       <div className={styles.inner}>
-        <header className={styles.head}>
+        <header className={styles.head} data-aos="fade-up">
           <p className={styles.script} aria-hidden="true">
             Концепція події
           </p>
           <h2 className={styles.title}>Next Gen Aesthetics</h2>
         </header>
 
-        <ul className={styles.tags}>
+        <ul className={styles.tags} data-aos="fade-up" style={aosDelay(1)}>
           {TAGS.map((tag, i) => {
             const isLast = i === TAGS.length - 1;
             return (
@@ -56,7 +57,7 @@ export function Concept() {
           })}
         </ul>
 
-        <div className={styles.card}>
+        <div className={styles.card} data-aos="fade-up" style={aosDelay(2)}>
           <p className={styles.cardTitle}>
             <span className={styles.accent}>7 тематичних напрямків,</span>
             <br />

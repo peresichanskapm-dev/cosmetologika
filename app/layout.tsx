@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ScrollReveal } from "./components/ScrollReveal/ScrollReveal";
 import "./globals.scss";
 
 // ── Локальні шрифти (файли в app/fonts/) ──
@@ -47,7 +48,10 @@ export default function RootLayout({
       lang="uk"
       className={`${script.variable} ${display.variable} ${body.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <ScrollReveal />
+        {children}
+      </body>
     </html>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./RegForm.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 export function RegForm() {
   const [sent, setSent] = useState(false);
@@ -15,12 +16,12 @@ export function RegForm() {
   return (
     <section id="register" className={styles.reg}>
       <div className={styles.inner}>
-        <header className={styles.head}>
+        <header className={styles.head} data-aos="fade-up">
           <p className={styles.label}>Станьте частиною</p>
           <p className={styles.script}>Косметологіки</p>
         </header>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit} data-aos="fade-up" style={aosDelay(1)}>
           <input
             className={styles.input}
             type="text"

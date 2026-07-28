@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { SPEAKERS } from "./data";
 import styles from "./Speakers.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 // Кількість колонок сітки на кожному брейкпоінті (має збігатись зі .grid у scss)
 const COLUMNS = { desktop: 4, tablet: 2, mobile: 1 };
@@ -22,11 +23,11 @@ export function Speakers() {
   return (
     <section id="speakers" className={styles.speakers}>
       <div className={styles.inner}>
-        <p className={styles.script}>Спікери</p>
+        <p className={styles.script} data-aos="fade-up">Спікери</p>
 
         <div className={styles.grid}>
           {SPEAKERS.map((s, i) => (
-            <article key={i} className={styles.card}>
+            <article key={i} className={styles.card} data-aos="fade-up" style={aosDelay(i)}>
               <div
                 className={styles.photo}
                 style={{ backgroundImage: `url(${s.image})` }}
@@ -39,7 +40,11 @@ export function Speakers() {
             </article>
           ))}
 
-          <div className={styles.loader} style={loaderStyle}>
+          <div
+            className={styles.loader}
+            style={{ ...loaderStyle, ...aosDelay(SPEAKERS.length) }}
+            data-aos="fade-up"
+          >
             {/* Фото-іконка очікування → public/images/speakers/loader.webp */}
             <div className={styles.loaderPhoto} aria-hidden="true" />
             <div className={styles.loaderInfo}>

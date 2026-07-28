@@ -1,11 +1,12 @@
 import styles from "./AfterParty.module.scss";
+import { aosDelay } from "../../lib/aos";
 
 export function AfterParty() {
   return (
     <section className={styles.afterParty}>
       <div className={styles.inner}>
         <div className={styles.card}>
-          <div className={styles.textPanel}>
+          <div className={styles.textPanel} data-aos="fade-up">
             <p className={styles.script}>
               <span className={styles.scriptWord}>After</span>
               <span className={styles.scriptWord}>Party</span>
@@ -29,7 +30,7 @@ export function AfterParty() {
             </div>
           </div>
 
-          <div className={styles.photoPanel}>
+          <div className={styles.photoPanel} data-aos="fade-up" style={aosDelay(1)}>
             <div className={styles.photo} aria-hidden="true" />
 
             {/* eslint-disable-next-line @next/next/no-img-element */}
