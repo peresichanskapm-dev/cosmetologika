@@ -6,6 +6,7 @@ const PLANS = [
     name: "Simple",
     price: "7000 грн",
     variant: "simple",
+    link: "https://secure.wayforpay.com/button/bc7c0e9d7c4df",
     items: [
       "Участь у конгресі",
       "Welcome coffee break",
@@ -18,6 +19,7 @@ const PLANS = [
     name: "VIP",
     price: "11000 грн",
     variant: "vip",
+    link: "https://secure.wayforpay.com/button/b1502d8f18e58",
     items: [
       "Окрема стійка реєстрації",
       "Розміщення у перших рядах залу",
@@ -63,7 +65,12 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <a href="#register" className={styles.btn}>
+              <a
+                href={plan.link}
+                className={styles.btn}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Придбати
               </a>
             </div>
