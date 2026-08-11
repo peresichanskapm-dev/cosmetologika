@@ -17,6 +17,13 @@ export const PROGRAM: ProgramBlock[] = [
     category: "Hardware & Clinical Treatments: естетична та апаратна синергія",
     items: [
       {
+        time: "09:00–09:20",
+        title: "",
+        sub: "",
+        speaker: "Secret Speaker",
+        role: "",
+      },
+      {
         time: "09:20–09:40",
         title: "Smart Longevity",
         sub: "активація внутрішніх резервів шкіри проти стресу та агресії.",
