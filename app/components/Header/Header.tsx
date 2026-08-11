@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { label: "Про курс", href: "#about" },
   { label: "Для кого", href: "#for-whom" },
   { label: "Тематичні блоки", href: "#topics" },
+  { label: "Програма", href: "#program" },
   { label: "Що отримаєте?", href: "#benefits" },
   { label: "Ціни та квитки", href: "#tickets" },
 ];

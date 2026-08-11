@@ -1,6 +1,16 @@
 import styles from "./Hero.module.scss";
 import { aosDelay } from "../../lib/aos";
 
+function HeroBadge() {
+  return (
+    <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className={styles.badgeImage} src="/images/hero/hero-badge-13.webp" alt="13" />
+      <span className={styles.badgeText}>балів БПР</span>
+    </>
+  );
+}
+
 export function Hero() {
   return (
     <section className={styles.hero}>
@@ -24,6 +34,11 @@ export function Hero() {
           AI&#8209;діагностики та майбутнього естетичної медицини.
         </p>
 
+        {/* Плашка «13 балів БПР» — на мобілці в потоці, на десктопі накладена на фото (.badgeOverlay) */}
+        <div className={styles.badgeInline} data-aos="fade-up" style={aosDelay(4)}>
+          <HeroBadge />
+        </div>
+
         <div className={styles.actions} data-aos="fade-up" style={aosDelay(4)}>
           <a href="#register" className={styles.btnPrimary}>
             Зареєструватися
@@ -32,6 +47,10 @@ export function Hero() {
             Стати партнером
           </a>
         </div>
+      </div>
+
+      <div className={styles.badgeOverlay} data-aos="fade-up" style={aosDelay(4)}>
+        <HeroBadge />
       </div>
     </section>
   );

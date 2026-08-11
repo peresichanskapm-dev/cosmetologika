@@ -132,6 +132,61 @@
   }
 }
 
+// Плашка «13 балів БПР». На десктопі — стемп поверх фото (правий нижній кут
+// фото 1444×800, Figma: right 100px / bottom 48px). На мобілці той самий
+// вміст рендериться другий раз усередині .inner (.badgeInline), у потоці
+// між описом і кнопками — там немає фіксованого фото-полотна для оверлею.
+.badgeOverlay {
+  position: absolute;
+  right: $container-pad-desktop;
+  bottom: 48px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.badgeInline {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    margin: 4px 0 28px;
+  }
+}
+
+.badgeImage {
+  display: block;
+  width: 153px;
+  height: 112px;
+  object-fit: contain;
+
+  @include mobile {
+    width: 87px;
+    height: 64px;
+  }
+}
+
+.badgeText {
+  font-family: $font-body;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 1.2;
+  color: $color-white;
+  width: 70px;
+  margin-left: -48px; // накладаємо текст на праву частину зображення, як у Figma
+
+  @include mobile {
+    font-size: 14px;
+    width: 40px;
+    margin-left: -27px;
+  }
+}
+
 // Спільна база для обох кнопок
 %btn {
   display: inline-flex;
