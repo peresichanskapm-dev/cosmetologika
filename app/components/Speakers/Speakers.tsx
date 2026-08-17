@@ -35,7 +35,7 @@ export function Speakers() {
               />
               <div className={styles.info}>
                 <h3 className={styles.name}>{s.name}</h3>
-                <p className={styles.role}>{s.role}</p>
+                {s.role && <p className={styles.role}>{s.role}</p>}
               </div>
             </article>
           ))}

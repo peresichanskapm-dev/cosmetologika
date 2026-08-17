@@ -7,7 +7,7 @@ import { Audience } from "./components/Audience/Audience";
 import { Benefits } from "./components/Benefits/Benefits";
 import { Topics } from "./components/Topics/Topics";
 import { Program } from "./components/Program/Program";
-// import { Speakers } from "./components/Speakers"; // приховано: поки немає підтверджених спікерів
+import { Speakers } from "./components/Speakers";
 import { Venue } from "./components/Venue/Venue";
 import { Expo } from "./components/Expo/Expo";
 import { AfterParty } from "./components/AfterParty/AfterParty";
@@ -32,7 +32,7 @@ export default function Home() {
         <Benefits />
         <Topics />
         <Program />
-        {/* <Speakers /> — приховано: поки немає підтверджених спікерів */}
+        <Speakers />
         <Expo />
         <AfterParty />
         <Pricing />

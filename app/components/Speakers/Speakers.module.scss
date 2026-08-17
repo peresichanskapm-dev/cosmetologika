@@ -46,13 +46,14 @@
   }
 }
 
-// Фіксоване співвідношення сторін картки (фото + інфоблок разом), однакове
-// для всіх карток на всіх рядках — масштабується лише розмір, не пропорції.
+// Висота картки більше не фіксована: фото тримає свою пропорцію, а інфоблок
+// росте під текст регалій. Grid сам вирівнює висоту карток у межах рядка
+// (align-items: stretch за замовчуванням) — довший текст в одній картці не
+// обрізається і не ламає сусідні картки того самого рядка.
 .card {
   display: flex;
   flex-direction: column;
   min-width: 0; // без цього grid-трек «роздувається» під контент іншого рядка
-  aspect-ratio: 295 / 340;
   border-radius: 11px;
   overflow: hidden;
   background: $color-card;
@@ -68,13 +69,11 @@
 
 .info {
   flex: 1;
-  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 14px 12px 20px;
   text-align: center;
-  overflow: hidden;
 }
 
 .name {
@@ -83,9 +82,6 @@
   font-size: 23px;
   color: $color-text;
   margin-bottom: 2px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 
   @include mobile {
     font-size: 17px;
@@ -94,88 +90,70 @@
 
 .role {
   font-family: $font-body;
-  font-size: 18px;
+  font-size: 15px;
+  line-height: 1.35;
   color: $color-text-muted;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
 
   @include mobile {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
 // Плитка-лоадер (замість ще не оголошених спікерів) — займає решту останнього
 // ряду: ширина рахується в Speakers.tsx і передається через --span-* змінні.
-// Структура дзеркалить .card/.photo/.info, щоб розмір плитки завжди
-// збігався з розміром звичайної картки спікера.
+// Іконка завжди над текстом (не збоку): на вузькій плитці (1 колонка на
+// десктопі) рядок "іконка + текст" лишав тексту замало ширини для
+// нормального переносу слів, і overflow: hidden на .loader обрізав його.
+// Вертикальний стек віддає тексту всю ширину картки на будь-якій кількості
+// колонок.
 .loader {
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  min-width: 0; // без цього grid-трек «роздувається» під фіксовану ширину іконки
+  flex-direction: column;
+  justify-content: center; // іконка+текст центруються як один блок, а не кожен окремо
+  min-width: 0; // без цього grid-трек «роздувається» під контент іншого рядка
   border-radius: 11px;
   overflow: hidden;
   background: $color-card;
   grid-column: span var(--span-desktop, 1);
-  // Висота картки задається aspect-ratio (295/340), тому коли плитка сама
-  // на весь ряд (нема сусідньої картки, щоб stretch спрацював), явно
-  // масштабуємо той самий аспект на кількість зайнятих колонок.
-  aspect-ratio: calc(295 * var(--span-desktop, 1)) / 340;
 
   @include tablet {
     grid-column: span var(--span-tablet, 1);
-    aspect-ratio: calc(295 * var(--span-tablet, 1)) / 340;
   }
 
   @include mobile {
     grid-column: span var(--span-mobile, 1);
-    flex-direction: column;
-    align-items: center;
-    aspect-ratio: calc(295 * var(--span-mobile, 1)) / 340;
   }
 }
 
-// Іконка-лоадер завжди зберігає розмір звичайного фото картки,
-// незалежно від того, скільки колонок займає плитка (не розтягується).
 .loaderPhoto {
   flex: none;
-  width: 45%;
-  max-width: 220px;
+  width: 100%;
+  max-width: 240px;
+  margin-inline: auto;
   aspect-ratio: 295 / 268;
   background-image: url("/images/speakers/loader.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
-  @include mobile {
-    width: 100%;
-    max-width: 300px;;
-  }
 }
 
 .loaderInfo {
-  flex: 1;
-  min-width: 0;
+  flex: none;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 14px 20px;
-  text-align: left;
-
-  @include mobile {
-    justify-content: center;
-    padding: 14px 12px 20px;
-    text-align: center;
-  }
+  justify-content: center;
+  padding: 14px 20px 0;
+  text-align: center;
 }
 
 .loaderText {
-  min-width: 0;
   font-family: $font-display;
   font-size: 20px;
   line-height: 1.2;
   color: $color-accent;
   text-transform: uppercase;
+
+  @include mobile {
+    font-size: 17px;
+  }
 }

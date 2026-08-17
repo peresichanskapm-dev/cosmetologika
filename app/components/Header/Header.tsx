@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { label: "Для кого", href: "#for-whom" },
   { label: "Тематичні блоки", href: "#topics" },
   { label: "Програма", href: "#program" },
+  { label: "Спікери", href: "#speakers" },
   { label: "Що отримаєте?", href: "#benefits" },
   { label: "Ціни та квитки", href: "#tickets" },
 ];
