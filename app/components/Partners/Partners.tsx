@@ -1,5 +1,6 @@
 import styles from "./Partners.module.scss";
 import { aosDelay } from "../../lib/aos";
+import { PARTNER_TIERS } from "./partnersData";
 
 const PARTNER_ITEMS = [
   "виставкові стенди",
@@ -30,6 +31,34 @@ export function Partners() {
   return (
     <section id="partners" className={styles.partners}>
       <div className={styles.inner}>
+        <header className={styles.logosHead} data-aos="fade-up">
+          <p className={styles.script}>Партнери</p>
+          <h2 className={styles.title}>Бренди, які вже з нами</h2>
+        </header>
+
+        <div className={styles.tiers}>
+          {PARTNER_TIERS.map((tier, i) => (
+            <div
+              key={tier.title}
+              className={styles.tierBlock}
+              data-aos="fade-up"
+              style={aosDelay(Math.min(i + 1, 3))}
+            >
+              <h3 className={tier.highlight ? styles.tierTitleCenter : styles.tierTitle}>
+                {tier.title}
+              </h3>
+              <div className={tier.highlight ? styles.tierGridHighlight : styles.tierGrid}>
+                {tier.logos.map((logo, j) => (
+                  <div key={`${logo.src}-${j}`} className={styles.logoCard}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo.src} alt={logo.alt} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
         <header className={styles.head} data-aos="fade-up">
           <p className={styles.script}>Стати партнером</p>
           <h2 className={styles.title}>
