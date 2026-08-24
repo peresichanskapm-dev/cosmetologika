@@ -46,6 +46,19 @@
   }
 }
 
+// До натискання "Дивитись всіх спікерів" ховаємо картки понад VISIBLE_MOBILE
+// та плитку-лоадер (її span рахується під повний список, тож для скороченого
+// показу вона зайва). Стосується лише мобільного — на десктопі/таблеті
+// список завжди повний.
+.grid.collapsed {
+  @include mobile {
+    .overflowCard,
+    .loader {
+      display: none;
+    }
+  }
+}
+
 // Висота картки більше не фіксована: фото тримає свою пропорцію, а інфоблок
 // росте під текст регалій. Grid сам вирівнює висоту карток у межах рядка
 // (align-items: stretch за замовчуванням) — довший текст в одній картці не
@@ -155,5 +168,39 @@
 
   @include mobile {
     font-size: 17px;
+  }
+}
+
+// Кнопка розгортання повного списку — показуємо лише на мобільному,
+// де список спікерів згорнутий до VISIBLE_MOBILE карток.
+.actions {
+  display: none;
+
+  @include mobile {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+  }
+}
+
+.moreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding-inline: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-text;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+    transform: translateY(-1px);
   }
 }
