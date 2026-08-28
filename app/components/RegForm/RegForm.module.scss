@@ -56,6 +56,12 @@
   }
 }
 
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .input {
   height: 40px;
   padding-inline: 24px;
@@ -65,6 +71,7 @@
   font-family: $font-body;
   font-size: 14px;
   color: $color-text;
+  width: 100%;
 
   &::placeholder {
     color: $color-text-muted;
@@ -76,6 +83,20 @@
     outline: none;
     box-shadow: 0 0 0 1px $color-accent;
   }
+}
+
+.fieldError {
+  font-family: $font-body;
+  font-size: 12px;
+  color: $color-error;
+  padding-inline: 24px;
+}
+
+.errorMessage {
+  grid-column: 1 / -1;
+  font-family: $font-body;
+  font-size: 14px;
+  color: $color-error;
 }
 
 .submit {

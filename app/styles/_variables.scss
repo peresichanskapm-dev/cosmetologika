@@ -18,6 +18,9 @@ $color-accent: #d69da9;
 $color-accent-light: #f0b9c4;
 $gradient-accent: linear-gradient(90deg, #d69da9 0%, #f0b9c4 100%);
 
+// Валідація форм (не з Figma)
+$color-error: #c0392b;
+
 // --- Типографіка ------------------------------------------------
 // Три шрифти (усі не-Google, підключаємо локально в layout.tsx):
 //   --font-script  → CalligraphRuss   (каліграфія: «Косметологіка», «Спікери»)
