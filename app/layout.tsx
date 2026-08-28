@@ -34,8 +34,19 @@ const body = localFont({
 });
 
 export const metadata: Metadata = {
+  // Базовий URL продакшн-домену: з нього резолвляться canonical та og:url.
+  metadataBase: new URL("https://cosmetologica.com.ua"),
   title: "EstyDerm",
   description: "EstyDerm — косметологія та догляд за шкірою",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "EstyDerm",
+    title: "EstyDerm",
+    description: "EstyDerm — косметологія та догляд за шкірою",
+    locale: "uk_UA",
+  },
 };
 
 export default function RootLayout({
