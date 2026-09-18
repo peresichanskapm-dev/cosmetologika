@@ -1,5 +1,6 @@
 import { Header } from "./components/Header/Header";
 import { Hero } from "./components/Hero/Hero";
+import { Recording } from "./components/Recording/Recording";
 import { About } from "./components/About/About";
 import { Concept } from "./components/Concept/Concept";
 import { Gallery } from "./components/Gallery/Gallery";
@@ -25,6 +26,7 @@ export default function Home() {
       <Header />
       <main id="top">
         <Hero />
+        <Recording />
         <About />
         <Concept />
         <Gallery />
