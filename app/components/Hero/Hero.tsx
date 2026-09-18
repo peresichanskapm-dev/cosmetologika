@@ -1,13 +1,11 @@
 import styles from "./Hero.module.scss";
 import { aosDelay } from "../../lib/aos";
 
-function HeroBadge() {
+function HeroCourseLink() {
   return (
-    <>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className={styles.badgeImage} src="/images/hero/hero-badge-13.webp" alt="13" />
-      <span className={styles.badgeText}>балів БПР</span>
-    </>
+    <a href="#recording" className={styles.btnCourse}>
+      Придбати курс
+    </a>
   );
 }
 
@@ -34,9 +32,9 @@ export function Hero() {
           AI&#8209;діагностики та майбутнього естетичної медицини.
         </p>
 
-        {/* Плашка «13 балів БПР» — на мобілці в потоці, на десктопі накладена на фото (.badgeOverlay) */}
-        <div className={styles.badgeInline} data-aos="fade-up" style={aosDelay(4)}>
-          <HeroBadge />
+        {/* Кнопка «Придбати курс» — на мобілці в потоці, на десктопі накладена на фото (.courseOverlay) */}
+        <div className={styles.courseInline} data-aos="fade-up" style={aosDelay(4)}>
+          <HeroCourseLink />
         </div>
 
         <div className={styles.actions} data-aos="fade-up" style={aosDelay(4)}>
@@ -49,9 +47,20 @@ export function Hero() {
         </div>
       </div>
 
-      <div className={styles.badgeOverlay} data-aos="fade-up" style={aosDelay(4)}>
-        <HeroBadge />
+      <div className={styles.courseOverlay} data-aos="fade-up" style={aosDelay(4)}>
+        <HeroCourseLink />
       </div>
+
+      {/* Наліпка «DONE» — декор поверх hero, не інтерактивна */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className={styles.doneSticker}
+        src="/images/hero/hero-done.svg"
+        alt=""
+        aria-hidden="true"
+        data-aos="fade-up"
+        style={aosDelay(5)}
+      />
     </section>
   );
 }
