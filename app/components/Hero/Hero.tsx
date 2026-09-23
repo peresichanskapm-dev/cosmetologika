@@ -1,14 +1,6 @@
 import styles from "./Hero.module.scss";
 import { aosDelay } from "../../lib/aos";
 
-function HeroCourseLink() {
-  return (
-    <a href="#recording" className={styles.btnCourse}>
-      Придбати курс
-    </a>
-  );
-}
-
 export function Hero() {
   return (
     <section className={styles.hero}>
@@ -32,23 +24,11 @@ export function Hero() {
           AI&#8209;діагностики та майбутнього естетичної медицини.
         </p>
 
-        {/* Кнопка «Придбати курс» — на мобілці в потоці, на десктопі накладена на фото (.courseOverlay) */}
-        <div className={styles.courseInline} data-aos="fade-up" style={aosDelay(4)}>
-          <HeroCourseLink />
-        </div>
-
         <div className={styles.actions} data-aos="fade-up" style={aosDelay(4)}>
-          <a href="#register" className={styles.btnPrimary}>
-            Зареєструватися
-          </a>
-          <a href="#partners" className={styles.btnOutline}>
-            Стати партнером
+          <a href="#recording" className={styles.btnCourse}>
+            Придбати курс
           </a>
         </div>
-      </div>
-
-      <div className={styles.courseOverlay} data-aos="fade-up" style={aosDelay(4)}>
-        <HeroCourseLink />
       </div>
 
       {/* Наліпка «DONE» — декор поверх hero, не інтерактивна */}

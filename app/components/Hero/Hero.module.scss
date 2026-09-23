@@ -132,33 +132,6 @@
   }
 }
 
-// Кнопка «Придбати курс». На десктопі — поверх фото (правий нижній кут фото
-// 1444×800, Figma: right 100px / bottom 48px). На мобілці та сама кнопка
-// рендериться другий раз усередині .inner (.courseInline), у потоці між
-// описом і кнопками — там немає фіксованого фото-полотна для оверлею.
-.courseOverlay {
-  position: absolute;
-  right: $container-pad-desktop;
-  bottom: 48px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-
-  @include mobile {
-    display: none;
-  }
-}
-
-.courseInline {
-  display: none;
-
-  @include mobile {
-    display: flex;
-    align-items: center;
-    margin: 4px 0 28px;
-  }
-}
-
 // Наліпка «DONE» (біла, 210×198). Позиціонування лише через top/right — без
 // transform, бо [data-aos] скидає його в none після появи.
 .doneSticker {
@@ -178,14 +151,16 @@
   }
 }
 
-// Спільна база для обох кнопок
-%btn {
+// «Придбати курс» — розмір і шрифт як у колишньої «Зареєструватися», фон білий
+.btnCourse {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 46px;
   padding-inline: 36px;
   border-radius: 11px; // Figma: corner radius 11
+  background: $color-white;
+  color: $color-dark;
   font-family: $font-body;
   font-size: 16px;
   font-weight: 500;
@@ -195,39 +170,6 @@
 
   &:hover {
     transform: translateY(-1px);
-  }
-}
-
-.btnPrimary {
-  @extend %btn;
-  background: $gradient-accent; // Figma: D69DA9 → F0B9C4
-  color: $color-dark;
-
-  &:hover {
-    opacity: 0.92;
-  }
-}
-
-.btnOutline {
-  @extend %btn;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  color: $color-white;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
-
-// «Придбати курс» — суцільна біла, щоб відрізнялась від рожевої «Зареєструватися»
-.btnCourse {
-  @extend %btn;
-  background: $color-white;
-  color: $color-dark;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-
-  &:hover {
     opacity: 0.92;
   }
 }
