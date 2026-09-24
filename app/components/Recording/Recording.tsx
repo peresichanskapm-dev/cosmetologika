@@ -1,8 +1,9 @@
 import styles from "./Recording.module.scss";
 import { aosDelay } from "../../lib/aos";
 
-// TODO: підставити посилання оплати запису (як у Pricing — WayForPay), поки веде на форму.
-const RECORDING_LINK = "#register";
+// Купівля запису: Woo-товар 13379 на estyderm (LearnPress курс 13350), одразу на чекаут.
+const RECORDING_LINK =
+  "https://estyderm.com.ua/?add-to-cart=13379&quantity=1&redirect-to=checkout";
 
 export function Recording() {
   return (
