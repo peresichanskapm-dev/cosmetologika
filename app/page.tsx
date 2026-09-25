@@ -12,7 +12,6 @@ import { Speakers } from "./components/Speakers";
 import { Venue } from "./components/Venue/Venue";
 import { Expo } from "./components/Expo/Expo";
 import { AfterParty } from "./components/AfterParty/AfterParty";
-import { Pricing } from "./components/Pricing/Pricing";
 import { Partners } from "./components/Partners/Partners";
 import { Cta } from "./components/Cta/Cta";
 import { RegForm } from "./components/RegForm/RegForm";
@@ -37,7 +36,6 @@ export default function Home() {
         <Speakers />
         <Expo />
         <AfterParty />
-        <Pricing />
         <Venue />
         <Partners />
         <Cta />

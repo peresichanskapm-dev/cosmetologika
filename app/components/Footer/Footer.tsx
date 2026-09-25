@@ -3,7 +3,6 @@ import styles from "./Footer.module.scss";
 const FOOTER_NAV = [
   { label: "Про конгрес", href: "#about" },
   { label: "Програма", href: "#topics" },
-  { label: "Ціни", href: "#tickets" },
   { label: "Партнери", href: "#partners" },
   { label: "Локація", href: "#location" },
 ];
