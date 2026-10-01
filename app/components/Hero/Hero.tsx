@@ -24,7 +24,8 @@ export function Hero() {
           AI&#8209;діагностики та майбутнього естетичної медицини.
         </p>
 
-        <div className={styles.actions} data-aos="fade-up" style={aosDelay(4)}>
+        {/* Без data-aos: на мобілці кнопка біля низу екрана, нижче зони спрацювання ScrollReveal */}
+        <div className={styles.actions}>
           <a href="#recording" className={styles.btnCourse}>
             Придбати курс
           </a>

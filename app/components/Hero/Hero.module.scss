@@ -15,7 +15,8 @@
   overflow: hidden;
 
   @include mobile {
-    min-height: 950px;
+    // Висота = екран телефона, щоб кнопка внизу hero була видна одразу
+    min-height: 100svh;
     align-items: stretch;
     background-image: url("/images/hero/hero-bg-mobile.webp");
     background-position: center;
@@ -128,7 +129,7 @@
     width: 100%;
     max-width: 340px;
     margin-top: auto;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
 }
 
@@ -145,9 +146,10 @@
   pointer-events: none;
 
   @include mobile {
-    top: 118px;
-    right: -6px;
-    width: 150px;
+    // Під описом, над кнопкою — не перекриває текст
+    top: 380px;
+    right: 12px;
+    width: 130px;
   }
 }
 
