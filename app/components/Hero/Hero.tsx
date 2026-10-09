@@ -27,7 +27,7 @@ export function Hero() {
         {/* Без data-aos: на мобілці кнопка біля низу екрана, нижче зони спрацювання ScrollReveal */}
         <div className={styles.actions}>
           <a href="#recording" className={styles.btnCourse}>
-            Придбати курс
+            Придбати запис
           </a>
         </div>
       </div>

@@ -153,7 +153,7 @@
   }
 }
 
-// «Придбати курс» — розмір і шрифт як у колишньої «Зареєструватися», фон білий
+// «Придбати запис» — розмір і шрифт як у колишньої «Зареєструватися», фон як у кнопки запису конгресу
 .btnCourse {
   display: inline-flex;
   align-items: center;
@@ -161,7 +161,7 @@
   height: 46px;
   padding-inline: 36px;
   border-radius: 11px; // Figma: corner radius 11
-  background: $color-white;
+  background: $gradient-accent;
   color: $color-dark;
   font-family: $font-body;
   font-size: 16px;
